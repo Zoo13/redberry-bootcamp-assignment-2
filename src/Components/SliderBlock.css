@@ -1,0 +1,34 @@
+.slider{
+    width: 1288px;
+    margin: auto;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+}
+.arrows{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.slide{
+    margin-right: -40px;
+}
+
+
+.nextArrow , .prevArrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    background-color: #5D37F3;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.noWay {
+    background-color: #E4E3EB;
+}
+

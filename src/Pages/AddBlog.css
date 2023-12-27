@@ -1,0 +1,171 @@
+.addblog-header {
+    width: 1440px;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 28px 0;
+}
+
+.addblog-body{
+    border-top: 1px solid #E4E3EB;
+    background-color: #FBFAFF;
+}
+
+
+.backArrow{
+    width: 44px;
+    height: 44px;
+    border-radius: 24px;
+    background-color: #E4E3EB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -240px;
+    top: 7px;
+    cursor: pointer;
+}
+
+.addblog-container{
+    width: 600px;
+    margin: 40px auto;
+    position: relative;
+}
+.addblog-container ul {
+    padding: 0 0 0 20px;
+    color: #85858D;
+    font-size: 12px;
+    margin: 8px 0 24px 0;
+}
+
+
+
+.addblog-container label {
+    color: #1A1A1F;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.drop-zone{
+    width: 600px;
+    height: 180px;
+    background-color: #F4F3FF;
+    border: 1px dashed #85858D;
+    border-radius: 12px;
+    margin: 8px 0 24px 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.drop-zone span {
+    text-decoration: underline;
+    color: #1A1A1F;
+    font-weight: bold;
+}
+
+.author-title{
+    display: flex;
+    justify-content: space-between;
+}
+.author{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field {
+    width: 270px;
+    height: 20px;
+    border: 1px solid #E4E3EB;
+    border-radius: 12px;
+    padding: 12px 0 12px 16px;
+    color: #85858D;
+}
+
+.description-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.description-field{
+    width: 582px;
+    height: 124px;
+    resize: none;
+}
+.description-field:focus {
+    outline-color: #5D37F3;
+}
+
+.date-category{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    height: 75px;
+}
+.date-input-box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.date-input-box input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+.date-input-box input {
+    width: 238px;
+    padding: 12px 0 12px 48px;
+}
+  .date-input-box img {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+  }
+
+  .category{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+
+.mail{
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+
+.error {
+    display: flex;
+    align-items: flex-start;
+    max-width: 288px;
+    font-size: 12px;
+    color: #EA1919;
+    margin-top: 8px;
+}
+
+.error img{
+    position: relative;
+    margin-right: 8px;
+}
+
+.submit {
+    margin-left: 312px;
+    width: 288px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #E4E3EB;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+
+
