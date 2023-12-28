@@ -5,10 +5,35 @@ import BlogCard from './Components/BlogCard';
 import Blog from './Pages/Blog';
 import SignIn from './Components/SignIn';
 import Backdrop from './Components/Backdrop';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import AddBlog from './Pages/AddBlog';
 
+// import { Link, BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-dom';
+import Home from './Pages/Home';
+
+
 function App() {
+  const [filterCategories, setFilterCategories] = useState([])
+  console.log(filterCategories)
+  useEffect(() => {
+    getRequest()
+  }, []);
+
+
+
+  const getRequest = () => {
+    const response = axios.get('https://api.blog.redberryinternship.ge/api/categories')
+      .then(res => {
+        setFilterCategories(res.data.data)
+      })
+  }
+
+
+  const [stateValue, setStateValue] = useState('');
+
+
   const searchCategories = [
     {
       "id": 1,
@@ -113,62 +138,34 @@ function App() {
     }
   ]
 
-  const [isModalOpen, setModalOpen] = useState(false);
-  const useModal = () => setModalOpen(!isModalOpen);
-  const [isLogedIn, setIsLogedIn] = useState(false)
+
+
+
+  const updateStateValue = (newValue) => {
+    setStateValue(newValue);
+  };
+  const router = createBrowserRouter([
+    {
+      path: '/', element:
+        <Home
+          stateValue={stateValue}
+          filterCategories = {filterCategories}
+        />
+    },
+    { path: '/AddBlog', element: <AddBlog updateStateValue={updateStateValue} /> },
+  ])
+
+
+
+
+  // const [isModalOpen, setModalOpen] = useState(false);
+  // const useModal = () => setModalOpen(!isModalOpen);
+  // const [isLogedIn, setIsLogedIn] = useState(false)
 
   return (
     <div className="App">
-      {/* <AddBlog /> */}
-      <header className='app-header'>
-        <img src={logo} />
-        {isLogedIn && <button style={{ width: 153 }}> დაამატე ბლოგი </button>}
-        {!isLogedIn && <button className='enter' onClick={useModal}> შესვლა </button>}
-      </header>
-      <div className='content'>
-        {isModalOpen && <Backdrop onClick={useModal} />}
-        {isModalOpen && <SignIn closeModal={useModal} />}
-      </div>
-      <div className='body'>
-        <div className='h1-logo'>
-          <h1> ბლოგი </h1>
-          <img src={logo2} />
-        </div>
-        <div className="filter">
-          <ul>
-            {searchCategories.map(category => (
-              <li
-                key={category.id}
-                style={
-                  {
-                    backgroundColor: category.background_color,
-                    color: category.text_color,
-                    padding: '8px 16px 8px 16px',
-                    borderRadius: '30px',
-                    cursor: 'pointer'
-                  }
-                } > {category.title}</li>
-            ))}
-          </ul>
-        </div>
-        <div className='blog-list'>
-          {data.map(blog => (
-            <BlogCard
-              key={blog.id}
-              id={blog.id}
-              title={blog.title}
-              description={blog.description}
-              image={blog.image}
-              publish_date={blog.publish_date}
-              categories={blog.categories}
-              author={blog.author}
-            />
-          ))}
-        </div>
-      </div>
-      <Blog
-        data={data}
-      />
+      <RouterProvider router={router}>
+      </RouterProvider>
     </div>
 
   );

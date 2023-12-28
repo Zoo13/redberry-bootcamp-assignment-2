@@ -1,0 +1,78 @@
+.App {
+    margin: auto;
+    
+}
+.enter{
+    cursor: pointer;
+}
+.body{
+    background-color: #F3F2FA;
+}
+.content{
+    width: 1285px;
+    position: relative;
+    margin: auto;
+}
+.app-header {
+    width: 1285px;
+    height: 80px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-header button {
+    background-color: #5D37F3;
+    color: white;
+    width: 93px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+}
+
+.h1-logo{
+    margin: auto;
+    width: 1285px;
+    height: 328px;
+    display: flex;
+    align-items: center;
+    font-size: 64px;
+    justify-content: space-between;
+}
+.h1-logo h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-left: 13px;
+    color: #1A1A1F;
+
+}
+
+.filter {
+    width: 1440px;
+    margin: 74px auto 74px; 
+
+}
+
+
+.filter ul{
+    padding: 0;
+    width: 681px;
+    list-style-type: none;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+
+.blog-list{
+    width: 1288px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    justify-items: center;
+}

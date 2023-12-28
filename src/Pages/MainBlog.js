@@ -10,9 +10,10 @@ import BlogCard from '../Components/BlogCard';
 import nextArrow from '../images/Next.png';
 import prevArrow from '../images/Prev.png';
 import backArrow from '../images/Back.png'
+import { Link } from 'react-router-dom';
 
 const MainBlog = (props) => {
-console.log(props)
+    console.log(props)
     // const sliderRef = useRef();
     // const [currentSlide, setCurrentSlide] = useState(3);
 
@@ -63,9 +64,11 @@ console.log(props)
     return (
         <div className='main-blog-page'>
             <div className='Main-blog'>
-                <div className='back-arrow'>
-                    <img src={backArrow} />
-                </div>
+                <Link to={'/'}>
+                    <div className='back-arrow'>
+                        <img src={backArrow} />
+                    </div>
+                </Link>
                 <div className='Main-blog-img'>
                     <img src={walp} />
                 </div>
@@ -74,7 +77,7 @@ console.log(props)
                     <h6> გამოქვეყნების თარიღი </h6>
                     <h2> მობილური ფოტოგრაფიის კონკურსის გამარჯვებულთა ვინაობა ცნობილია </h2>
                     <div className='Main-blog-categories'>
-                        
+
                     </div>
                     <div className='Main-blog-description' >
                         <p> 6 თვის შემდეგ ყველის ბრმა დეგუსტაციის დროც დადგა. მაქსიმალური სიზუსტისთვის, ეს პროცესი ორჯერ გაიმეორეს და ორივეჯერ იმ ყველს მიენიჭა უპირატესობა, რომელსაც ჰიპ-ჰოპს ასმენინებდნენ. „მუსიკალური ენერგია პირდაპირ ყველის შუაგულში რეზონირებდა“, — აღნიშნა ბერნის ხელოვნების უნივერსიტეტის წარმომადგენელმა, მაიკლ ჰერენბერგმა.

@@ -7,8 +7,9 @@ import info from '../images/info-circle.png'
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import Select from 'react-select'
+import { Link } from 'react-router-dom';
 
-const AddBlog = () => {
+const AddBlog = (props) => {
     const onDrop = useCallback((acceptedFiles) => {
         console.log(acceptedFiles[0])
     }, []);
@@ -21,6 +22,19 @@ const AddBlog = () => {
     ]
 
     const customStyles = {
+        control: (provided, state) => ({
+            ...provided,
+            width: '288px',
+            minHeight: '46px',
+            border: '1px solid #E4E3EB;',
+            borderRadius: '12px',
+            boxShadow: 'none',
+            outline: state.menuIsOpen ? '2px solid #5D37F3' : 'initial',
+            transition: 'none',
+            '&:hover': {
+                borderColor: '',
+            },
+        }),
         option: (provided, state) => ({
             ...provided,
             backgroundColor: state.data.color,
@@ -28,29 +42,17 @@ const AddBlog = () => {
             textAlign: 'center',
             borderRadius: 30,
             '&:active': {
-                background: 'none', 
+                background: 'none',
             },
-            cursor: 'pointer', 
+            cursor: 'pointer',
         }),
-        control: (provided, state)=> ({
-            ...provided,
-            width: '288px', 
-            minHeight: '46px',
-            border: '1px solid #E4E3EB;', 
-            borderRadius: '12px',
-            boxShadow: 'none',
-            outline: state.menuIsOpen ? '2px solid #5D37F3' : 'initial',
-            transition: 'none',
-            '&:hover': {
-              borderColor: '', 
-            },
-          }),
-          multiValue: (styles, state) => ({
+
+        multiValue: (styles, state) => ({
             ...styles,
             backgroundColor: state.data.color,
             borderRadius: 30,
-          }),
-          multiValueRemove: (provided) => ({
+        }),
+        multiValueRemove: (provided) => ({
             ...provided,
             padding: 0,
             margin: '8px 12px 8px 8px',
@@ -58,42 +60,47 @@ const AddBlog = () => {
             cursor: 'pointer',
             backgroundColor: 'none', // 
             '&:hover': {
-              backgroundColor: 'transparent',
-              color: 'white', 
-             
+                backgroundColor: 'transparent',
+                color: 'white',
+
             },
-          }),
-          clearIndicator: (provided) => ({
+        }),
+        clearIndicator: (provided) => ({
             ...provided,
             display: 'none',
-          }),
-          indicatorsContainer: (provided) => ({
+        }),
+        indicatorsContainer: (provided) => ({
             ...provided,
             cursor: 'pointer',
-          }),
-          indicatorSeparator: (provided) => ({
+        }),
+        indicatorSeparator: (provided) => ({
             ...provided,
             display: 'none',
             color: 'none',
-          }),
-          placeholder: (provided) => ({
+        }),
+        placeholder: (provided) => ({
             ...provided,
             fontSize: '14px',
             color: '#85858D'
-          }),
-          multiValueLabel: (provided) => ({
+        }),
+        multiValueLabel: (provided) => ({
             ...provided,
-            color:'white', 
+            color: 'white',
             margin: '8px 0 8px 12px',
             padding: 0,
-          }),
-          valueContainer: (provided) => ({
+        }),
+        valueContainer: (provided) => ({
             ...provided,
             padding: '4px',
-          }),
+            flexWrap: 'nowrap',
+            display: '-webkit-box',
+            overflowX: 'auto',
+        }),
     };
 
-
+    const changeStatus = () => {
+        props.updateStateValue(true)
+    }
 
     return (
 
@@ -103,9 +110,11 @@ const AddBlog = () => {
             </header>
             <div className='addblog-body'>
                 <form className='addblog-container'>
-                    <div className='backArrow'>
-                        <img src={backArrow} />
-                    </div>
+                    <Link to='/' onClick={changeStatus}>
+                        <div className='backArrow'>
+                            <img src={backArrow} />
+                        </div>
+                    </Link>
                     <h1> ბლოგის დამატება</h1>
                     <h5> ატვირთეთ ფოტო </h5>
                     <div {...getRootProps()} className='drop-zone'>

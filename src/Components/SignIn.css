@@ -11,20 +11,23 @@
     top: 100px;
     z-index: 101;
 }
-.signed{
+
+.signed {
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
 }
-.xMark{
+
+.xMark {
     width: 24px;
     position: absolute;
     right: 20px;
     top: 20px;
     cursor: pointer;
 }
-.SignIn-Window h5{
+
+.SignIn-Window h5 {
     margin-bottom: 8px;
 }
 
@@ -34,10 +37,12 @@
     width: 397px;
     height: 13px;
     padding: 12px 16px;
-    margin-bottom: 24px;
-}
-Input:focus{
-    outline-color:#5D37F3;
+    background-color: #F7F7FF;
+    filter: drop-shadow(0px 7px 3px lightgrey);
+    }
+
+Input:focus {
+    outline-color: #5D37F3;
 }
 
 .SignIn-Window button {
@@ -49,6 +54,5 @@ Input:focus{
     color: white;
     padding: 10px 0 10px 0;
     cursor: pointer;
+    margin-top: 24px;
 }
-
-
